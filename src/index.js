@@ -42,10 +42,13 @@ function markupMaker(response) {
     markupLeng = response[0].languages.map(leng => {
       return leng.name;
     });
+    console.log('1:', markupLeng);
     const markup = response.map(arr => {
       return CountryInfo(arr);
     });
+    console.log('2:');
     countryInfoEl.insertAdjacentHTML('beforeend', [...markup]);
+    console.log('3');
     return;
   }
 
