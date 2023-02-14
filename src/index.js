@@ -30,7 +30,7 @@ function onInput(event) {
 
 function markupMaker(response) {
   //   if (!response) return;
-
+  const markup = '';
   if (response.length > 10) {
     Notiflix.Notify.info(
       'Too many matches found. Please enter a more specific name.'
@@ -44,7 +44,7 @@ function markupMaker(response) {
       return leng.name;
     });
     console.log('1:', markupLeng);
-    const markup = response.map(arr => {
+    markup = response.map(arr => {
       console.log('response.map');
       return CountryInfo(arr);
     });
@@ -54,7 +54,7 @@ function markupMaker(response) {
     return;
   }
 
-  const markup = response.map(arr => {
+  markup = response.map(arr => {
     return CountryList(arr);
   });
 
