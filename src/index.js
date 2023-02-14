@@ -29,7 +29,7 @@ function onInput(event) {
 }
 
 function markupMaker(response) {
-  if (!response) return;
+  //   if (!response) return;
 
   if (response.length > 10) {
     Notiflix.Notify.info(
@@ -39,6 +39,7 @@ function markupMaker(response) {
   }
 
   if (response.length === 1) {
+    console.log('if 1');
     markupLeng = response[0].languages.map(leng => {
       return leng.name;
     });
