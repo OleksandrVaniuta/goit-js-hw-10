@@ -39,7 +39,7 @@ function markupMaker(response) {
   }
 
   if (response.length === 1) {
-    console.log('if 1', response[0].languages);
+    console.log('if 1', response);
     const markupLeng = response[0].languages.map(leng => {
       return leng.name;
     });
