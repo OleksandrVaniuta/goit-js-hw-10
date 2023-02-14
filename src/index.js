@@ -43,24 +43,24 @@ function markupMaker(response) {
       return leng.name;
     });
     const markup = response.map(arr => {
-      return CountryList(arr);
+      return CountryInfo(arr);
     });
     countryInfoEl.insertAdjacentHTML('beforeend', [...markup]);
     return;
   }
 
   const markup = response.map(arr => {
-    return CountryInfo(arr);
+    return CountryList(arr);
   });
 
   list.insertAdjacentHTML('beforeend', [...markup]);
 }
 
-function CountryInfo(arr) {
+function CountryList(arr) {
   return `<li class="item"><img src='${arr.flags.svg}' width='20' height='10px'/><h2>${arr.name}</h2></li>`;
 }
 
-function CountryList(arr) {
+function CountryInfo(arr) {
   return `<div class="country-name"><img  class='flag' src='${
     arr.flags.svg
   }' width='20' height='10px'/><h2>${arr.name}</h2></div><p>Capital: ${
