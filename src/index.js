@@ -38,9 +38,6 @@ function markupMaker(response) {
   }
 
   if (response.length === 1) {
-    markupLeng = response[0].languages.map(leng => {
-      return leng.name;
-    });
     const markup = response.map(arr => {
       return CountryInfo(arr);
     });
@@ -61,11 +58,16 @@ function CountryList(arr) {
 }
 
 function CountryInfo(arr) {
+  const markupLeng = arr.languages.map(leng => {
+    return leng.name;
+  });
   return `<div class="country-name"><img  class='flag' src='${
     arr.flags.svg
   }' width='20' height='10px'/><h2>${arr.name}</h2></div><p>Capital: ${
     arr.capital
-  }</p><p>Population: ${arr.population}</p><p>Languages: ${[...markupLeng]}</p>`;
+  }</p><p>Population: ${arr.population}</p><p>Languages: ${[
+    ...markupLeng,
+  ]}</p>`;
 }
 
 function clearInfo() {
