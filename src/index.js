@@ -29,8 +29,7 @@ function onInput(event) {
 }
 
 function markupMaker(response) {
-  //   if (!response) return;
-  const markup = '';
+  if (!response) return;
   if (response.length > 10) {
     Notiflix.Notify.info(
       'Too many matches found. Please enter a more specific name.'
@@ -39,22 +38,18 @@ function markupMaker(response) {
   }
 
   if (response.length === 1) {
-    console.log('if 1', response[0].languages);
-    const markupLeng = response[0].languages.map(leng => {
+    markupLeng = response[0].languages.map(leng => {
       return leng.name;
     });
-    console.log('1:', markupLeng);
-    markup = response.map(arr => {
-      console.log('response.map');
+    const markup = response.map(arr => {
       return CountryInfo(arr);
     });
-    console.log('2:');
+
     countryInfoEl.insertAdjacentHTML('beforeend', [...markup]);
-    console.log('3');
     return;
   }
 
-  markup = response.map(arr => {
+  const markup = response.map(arr => {
     return CountryList(arr);
   });
 
@@ -70,9 +65,7 @@ function CountryInfo(arr) {
     arr.flags.svg
   }' width='20' height='10px'/><h2>${arr.name}</h2></div><p>Capital: ${
     arr.capital
-  }</p><p>Population: ${arr.population}</p><p>Languages: ${[
-    ...markupLeng,
-  ]}</p>`;
+  }</p><p>Population: ${arr.population}</p><p>Languages: ${[...markupLeng]}</p>`;
 }
 
 function clearInfo() {
